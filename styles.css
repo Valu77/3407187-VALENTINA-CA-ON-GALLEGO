@@ -1,0 +1,245 @@
+/* ============================================
+   CSS Variables - Tema Agronómico
+============================================ */
+:root {
+  --bg-primary: #b1f0c4;
+  --bg-secondary: #b4e6d5;
+  --text-primary: #1b4332;
+  --text-secondary: #344e41;
+  --accent: #2d6a4f;
+  --accent-hover: #1b4332;
+  --border: #bae9c1;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --success: #40916c;
+  --transition: 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #081c15;
+  --bg-secondary: #1b4332;
+  --text-primary: #9edfa8;
+  --text-secondary: #a0ddb5;
+  --border: #2d6a4f;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   Reset
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ============================================
+   Container
+============================================ */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   Card
+============================================ */
+.card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow);
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* ============================================
+   Header
+============================================ */
+.card-header {
+  background: linear-gradient(135deg, #2d6a4f 0%, #95d5b2 100%);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.location {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   Sections
+============================================ */
+.card-section {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-section:last-child {
+  border-bottom: none;
+}
+
+.card-section h2 {
+  margin-bottom: 1rem;
+}
+
+.bio {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Skills / Services
+============================================ */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  background: var(--bg-primary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.skill-name {
+  font-weight: 600;
+}
+
+/* ============================================
+   Contact
+============================================ */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Stats
+============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-item {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Buttons
+============================================ */
+.btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Footer
+============================================ */
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Responsive
+============================================ */
+@media (max-width: 640px) {
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
