@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina Carrión - Desarrolladora Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4caf50 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .section {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #c8e6c9;
+            color: #2d5016;
+            padding: 8px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 12px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        .stat-card {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="profile.jpg" alt="Valentina" class="profile-img">
+            <h1>Valentina Carrión</h1>
+            <p>Desarrolladora Web - AgroAsssor</p>
+            <p>Colombia</p>
+        </div>
+        <div class="section">
+            <h2>Sobre Mí</h2>
+            <p>Creadora de AgroAsssor, una aplicación web que brinda asesoría técnica a agricultores...</p>
+        </div>
+    </div>
+</body>
+</html>
