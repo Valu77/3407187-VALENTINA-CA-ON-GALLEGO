@@ -1,158 +1,99 @@
-# 🌱 Proyecto Semana 02 – Sistema de Asesoría Agronómica
+# Semana 2 – Gestión de Fichas Agronómicas
 
-## 📌 Descripción del Proyecto
+## Descripción del Proyecto
 
-Este proyecto corresponde a la Semana 02 del Bootcamp JavaScript ES2023.
+En esta semana desarrollé una aplicación llamada **Gestión de Fichas Agronómicas**, que permite registrar y administrar fichas técnicas de cultivos.
 
-El dominio asignado fue **Página web de asesoría agronómica**, por lo tanto el sistema está orientado a la gestión de servicios agrícolas como asesorías de cultivo, análisis de suelo y planes de riego.
+El sistema permite:
 
-En esta semana se trabajó principalmente Programación Orientada a Objetos (POO), aplicando clases, encapsulamiento, herencia y validaciones.
+- Crear nuevas fichas de cultivo
+- Asignar nivel de atención
+- Registrar observaciones técnicas
+- Filtrar por estado
+- Buscar por nombre o descripción
+- Ver estadísticas generales
 
----
+Todo fue desarrollado usando los conceptos modernos de JavaScript vistos en la Semana 2.
 
-## 🎯 Objetivo
+##  Objetivo de la Semana
 
-Desarrollar la estructura base del sistema utilizando clases en JavaScript, aplicando:
+Aplicar operadores y métodos modernos de arrays en un proyecto funcional, utilizando:
 
-- Encapsulamiento con campos privados (#)
-- Herencia entre clases
-- Getters y setters
-- Validaciones
-- Uso de métodos personalizados
-- Organización del código por responsabilidades
+- Spread operator (...)
+- Rest parameters
+- Default parameters
+- map()
+- filter()
+- reduce()
+- Encadenamiento de métodos
+- Object enhancements
+- Métodos ES2022 como at() y Object.hasOwn()
 
----
+## ¿Qué hace mi aplicación?
 
-## 🏗️ Arquitectura del Sistema
+La página permite registrar fichas técnicas agrícolas con la siguiente información:
 
-El sistema está compuesto por:
+- Nombre del cultivo
+- Observaciones técnicas
+- Tipo de cultivo
+- Nivel de atención
+- Área en hectáreas
+- Fecha de evaluación
 
-### 🔹 Clase Base: `Service`
+Además, muestra estadísticas dinámicas como:
 
-Representa un servicio general dentro del sistema.
+- Total de fichas
+- Fichas en monitoreo
+- Fichas finalizadas
 
-Contiene:
-- ID único generado automáticamente
-- Nombre del servicio
-- Ubicación
-- Estado (activo/inactivo)
-- Fecha de creación
+También incluye filtros por estado y tipo, además de un buscador dinámico.
 
-Incluye métodos para:
-- Activar y desactivar el servicio
-- Obtener información
-- Validar datos
 
----
+## Conceptos Aplicados
 
-### 🔹 Clases Derivadas
+### Spread Operator
 
-Se implementaron clases que heredan de `Service`:
+Lo utilicé para:
 
-#### 🌽 CropAdvisory
-Representa asesorías de cultivo.
-Incluye tipo de cultivo y temporada.
+- Crear copias del array de fichas sin modificar el original
+- Agregar nuevas fichas manteniendo la inmutabilidad
+- Actualizar estados sin alterar directamente el array principal
 
-#### 🌱 SoilAnalysis
-Representa análisis de suelo.
-Incluye nivel de pH y nutrientes.
+Ejemplo aplicado:
+Cuando agrego una nueva ficha, uso spread para crear un nuevo array actualizado.
 
-#### 💧 IrrigationPlan
-Representa planes de riego.
-Incluye fuente de agua y área cubierta.
 
----
+###  Métodos de Arrays
 
-### 👤 Clase Base: `User`
+#### map()
 
-Representa un usuario del sistema.
+Lo utilicé para:
 
-Incluye:
-- ID único
-- Nombre
-- Email (con validación)
-- Fecha de registro
+- Renderizar dinámicamente las fichas en pantalla
+- Transformar datos antes de mostrarlos en el DOM
 
----
+#### filter()
 
-### 👨‍🌾 Clases Derivadas de Usuario
+Se usa para:
 
-#### Agronomist
-Especialista agrícola con una especialidad.
+- Filtrar fichas por estado (Todas, En monitoreo, Finalizadas)
+- Filtrar por tipo de cultivo
+- Buscar coincidencias en el texto del cultivo u observaciones
 
-#### Client
-Cliente con tamaño de finca.
+#### reduce()
 
----
+Se usa para:
 
-### 🖥️ Clase Principal: `AdvisorySystem`
+- Calcular estadísticas generales
+- Contar cuántas fichas hay por estado
+- Obtener el total de registros
 
-Es la clase que administra:
+### Encadenamiento de métodos
 
-- Lista de servicios
-- Lista de usuarios
-- Estadísticas del sistema
+Para aplicar múltiples filtros al mismo tiempo:
 
-Incluye métodos para:
-- Agregar servicios
-- Obtener todos los servicios
-- Calcular estadísticas (total, activos e inactivos)
-- Agregar usuarios
-
-También se utilizó un **static block** para definir información del sistema como versión y nombre.
-
----
-
-## 📊 Funcionalidades Implementadas
-
-✔ Registro de nuevos servicios  
-✔ Activación y desactivación de servicios  
-✔ Cálculo automático de estadísticas  
-✔ Validación de datos en campos sensibles  
-✔ Encapsulamiento usando campos privados (#)  
-✔ Uso de herencia para reutilizar código  
-
----
-
-## 💡 Conceptos Aplicados
-
-- Programación Orientada a Objetos
-- Encapsulamiento
-- Herencia
-- Polimorfismo
-- Validación de datos
-- Buenas prácticas de organización de clases
-
----
-
-## 🧪 Pruebas Realizadas
-
-Se realizaron pruebas creando instancias de cada tipo de servicio:
-
-- Asesoría de Maíz
-- Análisis de suelo
-- Plan de riego
-
-Posteriormente se verificó:
-
-- Que se agregaran correctamente al sistema
-- Que las estadísticas se calcularan bien
-- Que el estado activo/inactivo funcionara
-
----
-
-## 🚀 Conclusión
-
-En esta semana comprendí mejor cómo estructurar un sistema usando clases y herencia en JavaScript. 
-
-Aprendí la importancia del encapsulamiento para proteger datos internos y cómo organizar correctamente un proyecto orientado a objetos.
-
-Este proyecto sirve como base para continuar ampliando el sistema en las siguientes semanas.
-
----
-
-## 👩‍💻 Autor
-
-Valentina  
-Bootcamp JavaScript ES2023  
-Semana 02 
+```js
+fichas
+  .filter(...)
+  .filter(...)
+  .map(...)
